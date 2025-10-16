@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Q&A Maker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Q&A Maker</h1>
+            <p>Upload your CSV file and ask questions about your data</p>
+        </div>
+
+        <div class="main-content">
+            <div class="upload-section">
+                <h2 class="section-title">📁 Upload CSV File</h2>
+                <div class="file-upload-area" id="fileUploadArea">
+                    <div class="upload-icon">📄</div>
+                    <div class="upload-text">
+                        <strong>Click to select a CSV file</strong> or drag and drop here
+                    </div>
+                    <div style="font-size: 0.9rem; color: #999; margin-top: 5px;">
+                        Maximum file size: 16MB
+                    </div>
+                    <input type="file" id="fileInput" class="file-input" accept=".csv" />
+                </div>
+                <div class="file-info" id="fileInfo">
+                    <strong>Selected file:</strong> <span id="fileName"></span><br>
+                    <strong>Size:</strong> <span id="fileSize"></span>
+                </div>
+            </div>
+
+            <div class="question-section">
+                <h2 class="section-title">❓ Ask Your Question</h2>
+                <textarea 
+                    id="questionInput" 
+                    class="question-input" 
+                    placeholder="Enter your question about the CSV data here... (e.g., What is the total sales for last month?)"
+                    rows="4"
+                ></textarea>
+            </div>
+
+            <button id="submitBtn" class="submit-btn" disabled>
+                🚀 Analyze Data
+            </button>
+
+            <div class="loading" id="loading">
+                <div class="loading-header">
+                    <div class="loading-title" id="loadingTitle">🚀 Processing Your Request</div>
+                    <div class="loading-subtitle" id="loadingSubtitle">Please wait while we analyze your data</div>
+                </div>
+
+                <div class="spinner-container">
+                    <div class="spinner"></div>
+                    <div class="spinner-inner"></div>
+                </div>
+
+                <div class="loading-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill indeterminate" id="progressFill"></div>
+                    </div>
+                    <div class="loading-status" id="loadingStatus">Preparing analysis...</div>
+                </div>
+
+                <div class="loading-steps" id="loadingSteps">
+                    <div class="loading-step" id="step1">
+                        <div class="step-icon">1</div>
+                        <span>Upload</span>
+                    </div>
+                    <div class="loading-step" id="step2">
+                        <div class="step-icon">2</div>
+                        <span>Process</span>
+                    </div>
+                    <div class="loading-step" id="step3">
+                        <div class="step-icon">3</div>
+                        <span>Analyze</span>
+                    </div>
+                    <div class="loading-step" id="step4">
+                        <div class="step-icon">4</div>
+                        <span>Complete</span>
+                    </div>
+                </div>
+
+                <div class="loading-details" id="loadingDetails">
+                    <span id="loadingTimer">Processing time: 0s</span>
+                </div>
+            </div>
+
+            <div class="response-section" id="responseSection">
+                <h2 class="section-title" id="responseTitle">💡 Analysis Result</h2>
+                <div class="response-content" id="responseContent">
+                    <div class="response-header" id="responseHeader">
+                        <div class="response-status" id="responseStatus"></div>
+                        <div class="response-timestamp" id="responseTimestamp"></div>
+                    </div>
+                    <div class="response-meta" id="responseMeta"></div>
+                    <div class="response-answer" id="responseAnswer"></div>
+                    <div class="response-actions" id="responseActions">
+                        <button class="copy-btn" id="copyBtn" title="Copy response to clipboard">📋 Copy Response</button>
+                        <button class="clear-btn" id="clearBtn" title="Clear response">🗑️ Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
