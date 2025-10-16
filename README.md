@@ -1,4 +1,4 @@
-# Q/A Maker Backend - Flask + Azure OpenAI
+# Q/A Maker Backend - Flask + Mutli-LLM Support
 
 A simple Flask backend application that processes CSV files and answers questions about the data using Azure OpenAI models.
 
